@@ -53,12 +53,18 @@ export default function Hero({ subject, onSubjectChange, onAnalyze, isAnalyzing,
     <section className="py-14 px-4">
       <div className="max-w-2xl mx-auto">
 
-        {/* Headline */}
-        <h1 className="text-center font-extrabold leading-tight tracking-tight mb-3"
-          style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-          Subject Lines That{' '}
-          <span style={{ color: '#991b1b' }}>Get</span>{' '}
-          <span style={{ color: '#f97316' }}>Opened</span>
+        {/* Headline — single red→orange gradient flowing left to right across all text */}
+        <h1
+          className="text-center font-extrabold leading-tight tracking-tight mb-3"
+          style={{
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            background: 'linear-gradient(to right, #dc2626 0%, #c2410c 35%, #ea580c 60%, #f97316 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          Subject Lines That Get Opened
         </h1>
 
         {/* Subtitle */}
