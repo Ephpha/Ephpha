@@ -79,9 +79,11 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Header onSettingsClick={() => setShowProModal(true)} onHistoryClick={() => setShowHistory(true)} />
-      <Hero 
-        onAnalyze={analyzeSubject} 
-        isAnalyzing={isAnalyzing} 
+      <Hero
+        subject={subject}
+        onSubjectChange={setSubject}
+        onAnalyze={analyzeSubject}
+        isAnalyzing={isAnalyzing}
         error={error}
         loadingMessage={loadingMessage}
       />
