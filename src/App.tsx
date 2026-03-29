@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Results from './components/Results'
 import ProModal from './components/ProModal'
 import History from './components/History'
+import Footer from './components/Footer'
 import confetti from 'canvas-confetti'
 
 interface AnalysisResult {
@@ -163,6 +164,7 @@ export default function App() {
       {result && <Results result={result} onCopy={text => navigator.clipboard.writeText(text)} />}
       {showProModal && <ProModal onClose={() => setShowProModal(false)} />}
       {showHistory  && <History onClose={() => setShowHistory(false)} />}
+      <Footer />
     </div>
   )
 }
