@@ -17,12 +17,13 @@ interface ResultsProps {
 
 export default function Results({ result, onCopy }: ResultsProps) {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="bg-white rounded-3xl shadow-xl p-8 space-y-8">
+    <div className="max-w-2xl mx-auto px-4 pb-16">
+      <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 space-y-8">
         <ScoreCard score={result.score} />
+        {/* FIX 2: AI Alternatives first */}
+        <AlternativesList alternatives={result.alternatives} onCopy={onCopy} />
         <IssuesList issues={result.issues} />
         <SuggestionsList suggestions={result.suggestions} />
-        <AlternativesList alternatives={result.alternatives} onCopy={onCopy} />
       </div>
     </div>
   )
