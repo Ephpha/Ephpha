@@ -13,33 +13,32 @@ interface AnalysisResult {
   alternatives: string[]
 }
 
-const funLoadingMessages = [
-  "Consulting the email gods...",
-  "Polishing your subject line...",
-  "Waking up the AI...",
-  "Running the numbers...",
-  "Finding the perfect words...",
-  "Brewing some magic...",
+const loadingMessages = [
+  'Consulting the email gods...',
+  'Polishing your subject line...',
+  'Waking up the AI...',
+  'Running the numbers...',
+  'Finding the perfect words...',
+  'Brewing some magic...',
 ]
 
 export default function App() {
-  const [subject, setSubject] = useState('')
-  const [isAnalyzing, setIsAnalyzing] = useState(false)
-  const [result, setResult] = useState<AnalysisResult | null>(null)
-  const [error, setError] = useState('')
+  const [subject, setSubject]               = useState('')
+  const [isAnalyzing, setIsAnalyzing]       = useState(false)
+  const [result, setResult]                 = useState<AnalysisResult | null>(null)
+  const [error, setError]                   = useState('')
   const [loadingMessage, setLoadingMessage] = useState('')
-  const [showProModal, setShowProModal] = useState(false)
-  const [showHistory, setShowHistory] = useState(false)
+  const [showProModal, setShowProModal]     = useState(false)
+  const [showHistory, setShowHistory]       = useState(false)
 
   const analyzeSubject = async () => {
     if (!subject.trim()) {
       setError('Please enter an email subject line')
       return
     }
-
     setIsAnalyzing(true)
     setError('')
-    setLoadingMessage(funLoadingMessages[Math.floor(Math.random() * funLoadingMessages.length)])
+    setLoadingMessage(loadingMessages[Math.floor(Math.random() * loadingMessages.length)])
     setResult(null)
 
     await new Promise(resolve => setTimeout(resolve, 1500))
@@ -47,38 +46,33 @@ export default function App() {
     const mockScore = Math.floor(Math.random() * 40) + 50
     const mockResult: AnalysisResult = {
       score: mockScore,
-      issues: mockScore < 70 ? ['Subject line is too short', 'Avoid using all caps'] : ['Good length'],
+      issues:      mockScore < 70 ? ['Subject line is too short', 'Avoid using all caps'] : ['Good length'],
       suggestions: mockScore < 80 ? ['Add a sense of urgency', 'Try including a benefit'] : ['Great subject line!'],
       alternatives: [
-        "Quick question about your marketing",
-        "Unlock more email opens with this trick",
-        "Your emails are about to get better"
-      ]
+        'Quick question about your marketing',
+        'Unlock more email opens with this trick',
+        'Your emails are about to get better',
+      ],
     }
 
     if (mockScore >= 80) {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-      })
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } })
     }
 
     const history = JSON.parse(localStorage.getItem('ephpha-history') || '[]')
-    const newHistory = [{ subject, score: mockScore, date: new Date().toISOString() }, ...history].slice(0, 5)
+    const newHistory = [{ subject, score: mockScore, date: new Date().toISOString() }, ...history].slice(0, 10)
     localStorage.setItem('ephpha-history', JSON.stringify(newHistory))
 
     setResult(mockResult)
     setIsAnalyzing(false)
   }
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-  }
-
   return (
-    <div className="min-h-screen">
-      <Header onSettingsClick={() => setShowProModal(true)} onHistoryClick={() => setShowHistory(true)} />
+    <div style={{ minHeight: '100vh' }}>
+      <Header
+        onSettingsClick={() => setShowProModal(true)}
+        onHistoryClick={() => setShowHistory(true)}
+      />
       <Hero
         subject={subject}
         onSubjectChange={setSubject}
@@ -87,9 +81,9 @@ export default function App() {
         error={error}
         loadingMessage={loadingMessage}
       />
-      {result && <Results result={result} onCopy={copyToClipboard} />}
+      {result && <Results result={result} onCopy={text => navigator.clipboard.writeText(text)} />}
       {showProModal && <ProModal onClose={() => setShowProModal(false)} />}
-      {showHistory && <History onClose={() => setShowHistory(false)} />}
+      {showHistory  && <History onClose={() => setShowHistory(false)} />}
     </div>
   )
 }
