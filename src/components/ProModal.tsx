@@ -155,6 +155,33 @@ function OriginTab() {
           </p>
         </div>
 
+        {/* Pronunciation guide */}
+        <div
+          style={{
+            background: '#fafaf9',
+            border: '1.5px solid #e7e5e4',
+            borderRadius: '14px',
+            padding: '14px 18px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
+          }}
+        >
+          <span style={{ fontSize: '22px', flexShrink: 0 }}>🔊</span>
+          <div>
+            <p style={{ fontSize: '13px', fontWeight: 700, color: '#78716c', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              How to Say It
+            </p>
+            <p style={{ fontSize: '15px', fontWeight: 800, color: '#1c1917', margin: '0 0 3px', letterSpacing: '0.04em' }}>
+              <GradientText>EF</GradientText>
+              <span style={{ color: '#1c1917' }}>·fah</span>
+            </p>
+            <p style={{ fontSize: '13px', color: '#78716c', margin: 0, lineHeight: 1.5 }}>
+              The <strong>"ph"</strong> sounds like <strong>"f"</strong> — rhymes with <em>"efa"</em>. Two syllables, stress on the first.
+            </p>
+          </div>
+        </div>
+
         <div style={{ textAlign: 'center', paddingTop: '2px' }}>
           <p style={{ fontSize: '13px', color: '#a8a29e', fontStyle: 'italic', margin: 0 }}>
             ✉️ Ancient word. Modern tool. <GradientText><strong>Unstoppable emails.</strong></GradientText>
