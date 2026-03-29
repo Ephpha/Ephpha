@@ -35,7 +35,7 @@ export default function Footer() {
 
         <div className="flex items-center gap-4 sm:gap-5">
           <a
-            href="https://instagram.com/ephpha.ai"
+            href="https://www.instagram.com/ephpha.ai/"
             target="_blank"
             rel="noopener noreferrer"
             className="min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
@@ -47,7 +47,7 @@ export default function Footer() {
             <InstagramIcon />
           </a>
           <a
-            href="https://x.com/ephpha_ai"
+            href="https://x.com/EphphaMail"
             target="_blank"
             rel="noopener noreferrer"
             className="min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
