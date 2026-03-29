@@ -20,56 +20,38 @@ function XIcon() {
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid #f1f0ef', backgroundColor: 'white' }}>
-      <div
-        className="max-w-4xl mx-auto px-5 py-4"
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-      >
-        {/* Copyright */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-5 py-4 flex items-center justify-between">
         <span style={{ fontSize: '13px', color: '#a8a29e', fontWeight: 500 }}>
           Ephpha{' '}
-          <span
-            style={{
-              background: 'linear-gradient(to right, #dc2626, #f97316)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontWeight: 700,
-            }}
-          >
-            ©
-          </span>{' '}
+          <span style={{
+            background: 'linear-gradient(to right, #dc2626, #f97316)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            fontWeight: 700,
+          }}>©</span>{' '}
           2026
         </span>
 
-        {/* Social icons */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div className="flex items-center gap-4 sm:gap-5">
           <a
             href="https://instagram.com/ephpha.ai"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: '#a8a29e',
-              display: 'flex',
-              alignItems: 'center',
-              transition: 'color 0.15s',
-            }}
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            style={{ color: '#a8a29e' }}
             onMouseOver={e => (e.currentTarget.style.color = '#dc2626')}
             onMouseOut={e => (e.currentTarget.style.color = '#a8a29e')}
             aria-label="Ephpha on Instagram"
           >
             <InstagramIcon />
           </a>
-
           <a
             href="https://x.com/ephpha_ai"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: '#a8a29e',
-              display: 'flex',
-              alignItems: 'center',
-              transition: 'color 0.15s',
-            }}
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            style={{ color: '#a8a29e' }}
             onMouseOver={e => (e.currentTarget.style.color = '#f97316')}
             onMouseOut={e => (e.currentTarget.style.color = '#a8a29e')}
             aria-label="Ephpha on X"
