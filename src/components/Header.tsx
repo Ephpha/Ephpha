@@ -36,12 +36,15 @@ export default function Header({ onSettingsClick, onHistoryClick }: HeaderProps)
           <img
             src="/logo-icon.png"
             alt="Ephpha logo"
-            width={72}
-            height={72}
+            width={84}
+            height={84}
             style={{
               objectFit: 'contain',
               display: 'block',
+              /* multiply turns white/grey pixels invisible on white header */
               mixBlendMode: 'multiply',
+              /* inset clips the outer shadow/glow bleeding at the PNG edges */
+              clipPath: 'inset(7% round 0px)',
             }}
           />
 
