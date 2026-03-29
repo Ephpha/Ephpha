@@ -98,6 +98,8 @@ function OriginTab() {
       </h2>
 
       <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+
+        {/* Box 1 — The ancient root */}
         <div
           style={{
             background: 'linear-gradient(135deg, #fff1f0 0%, #fff7ed 100%)',
@@ -107,15 +109,16 @@ function OriginTab() {
           }}
         >
           <p style={{ fontSize: '13px', fontWeight: 700, color: '#dc2626', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            The Ancient Word
+            The Ancient Root
           </p>
           <p style={{ fontSize: '14px', color: '#1c1917', lineHeight: 1.6, margin: 0 }}>
-            <strong>Ephphatha</strong> <span style={{ color: '#78716c' }}>(אפתחא in Aramaic)</span> is an ancient command that means{' '}
+            The word <strong>Ephphatha</strong> <span style={{ color: '#78716c' }}>(אפתחא in Aramaic)</span> is an ancient command meaning{' '}
             <GradientText><strong>"Be opened."</strong></GradientText>{' '}
-            It is a word spoken to unlock what is closed — to reveal what is hidden — to give something the power to be heard.
+            It was spoken to unlock what is closed — to give something the power to finally be heard.
           </p>
         </div>
 
+        {/* Box 2 — Why we shortened it */}
         <div
           style={{
             background: 'linear-gradient(135deg, #fff7ed 0%, #fff1f0 100%)',
@@ -125,18 +128,36 @@ function OriginTab() {
           }}
         >
           <p style={{ fontSize: '13px', fontWeight: 700, color: '#f97316', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            The Modern Connection
+            The Modern Name
           </p>
           <p style={{ fontSize: '14px', color: '#1c1917', lineHeight: 1.6, margin: 0 }}>
-            Just as the word commands doors to open,{' '}
-            <GradientText><strong>Ephpha commands emails to get opened.</strong></GradientText>{' '}
-            Your subject line is the door. We help you unlock it — so your message finally gets the attention it deserves.
+            We stripped it down to <GradientText><strong>Ephpha</strong></GradientText> — sharper, faster, built for the digital world.
+            The full word belongs to ancient texts. The short form belongs to your inbox.{' '}
+            Same command. New medium. <GradientText><strong>Get opened.</strong></GradientText>
           </p>
         </div>
 
-        <div style={{ textAlign: 'center', paddingTop: '4px' }}>
-          <p style={{ fontSize: '14px', color: '#78716c', fontStyle: 'italic', margin: 0 }}>
-            ✉️ Ancient wisdom. Modern inbox. <GradientText><strong>More opens.</strong></GradientText>
+        {/* Box 3 — The mission */}
+        <div
+          style={{
+            background: 'linear-gradient(135deg, #fff1f0 0%, #fff7ed 100%)',
+            border: '1.5px solid #fca5a5',
+            borderRadius: '14px',
+            padding: '16px 18px',
+          }}
+        >
+          <p style={{ fontSize: '13px', fontWeight: 700, color: '#dc2626', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            What It Means For You
+          </p>
+          <p style={{ fontSize: '14px', color: '#1c1917', lineHeight: 1.6, margin: 0 }}>
+            Every email you send is a door waiting to be opened. Your subject line is the key.{' '}
+            <GradientText><strong>Ephpha gives you that key</strong></GradientText> — AI-powered analysis that transforms a subject line people scroll past into one they have to click.
+          </p>
+        </div>
+
+        <div style={{ textAlign: 'center', paddingTop: '2px' }}>
+          <p style={{ fontSize: '13px', color: '#a8a29e', fontStyle: 'italic', margin: 0 }}>
+            ✉️ Ancient word. Modern tool. <GradientText><strong>Unstoppable emails.</strong></GradientText>
           </p>
         </div>
       </div>
