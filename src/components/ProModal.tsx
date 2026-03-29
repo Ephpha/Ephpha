@@ -266,32 +266,44 @@ export default function ProModal({ onClose }: ProModalProps) {
   const [activeTab, setActiveTab] = useState<TabId>('about')
 
   return (
+    /* Overlay — aligns to bottom on mobile, center on sm+ */
     <div
       style={{
         position: 'fixed', inset: 0, zIndex: 50,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex',
+        alignItems: 'flex-end',   /* sheet slides up from bottom on mobile */
+        justifyContent: 'center',
         backgroundColor: 'rgba(0,0,0,0.45)',
-        padding: '16px',
       }}
+      className="sm:items-center sm:p-4"
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
     >
+      {/* Modal card — flex column so content scrolls between fixed header & footer */}
       <div
         style={{
           backgroundColor: 'white',
-          borderRadius: '24px',
           width: '100%',
           maxWidth: '440px',
           boxShadow: '0 25px 60px rgba(0,0,0,0.18)',
-          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          /* max-height: leave room for browser chrome on mobile */
+          maxHeight: '90dvh',
+          /* rounded top corners only on mobile, all corners on sm+ */
+          borderRadius: '24px 24px 0 0',
         }}
+        className="sm:rounded-3xl"
       >
-        {/* Tab bar */}
+        {/* ── FIXED: Tab bar ── */}
         <div
           style={{
             display: 'flex',
             borderBottom: '1px solid #f1f0ef',
             backgroundColor: '#fafaf9',
+            flexShrink: 0,
+            borderRadius: '24px 24px 0 0',
           }}
+          className="sm:rounded-t-3xl"
         >
           {TABS.map(tab => (
             <button
@@ -299,8 +311,8 @@ export default function ProModal({ onClose }: ProModalProps) {
               onClick={() => setActiveTab(tab.id)}
               style={{
                 flex: 1,
-                padding: '13px 6px',
-                fontSize: '12px',
+                padding: '13px 4px',
+                fontSize: '11px',
                 fontWeight: activeTab === tab.id ? 700 : 500,
                 fontFamily: 'inherit',
                 border: 'none',
@@ -309,27 +321,38 @@ export default function ProModal({ onClose }: ProModalProps) {
                 cursor: 'pointer',
                 color: activeTab === tab.id ? '#dc2626' : '#a8a29e',
                 transition: 'all 0.15s',
+                minHeight: '48px',
               }}
+              className="sm:text-xs sm:px-2"
             >
               {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Tab content */}
-        <div style={{ padding: '24px 24px 20px' }}>
+        {/* ── SCROLLABLE: Tab content ── */}
+        <div style={{ overflowY: 'auto', flex: 1, padding: '20px 20px 4px' }} className="sm:px-6 sm:pt-6">
           {activeTab === 'about'  && <AboutTab />}
           {activeTab === 'origin' && <OriginTab />}
           {activeTab === 'pro'    && <ProTab />}
         </div>
 
-        {/* Close button */}
-        <div style={{ padding: '0 24px 20px', textAlign: 'center' }}>
+        {/* ── FIXED: Close button always visible at bottom ── */}
+        <div
+          style={{
+            flexShrink: 0,
+            padding: '12px 20px 20px',
+            textAlign: 'center',
+            borderTop: '1px solid #f1f0ef',
+            backgroundColor: 'white',
+          }}
+          className="sm:px-6 sm:pb-6"
+        >
           <button
             onClick={onClose}
             style={{
-              padding: '10px 32px',
-              borderRadius: '10px',
+              padding: '11px 40px',
+              borderRadius: '12px',
               border: '1.5px solid #e7e5e4',
               background: 'white',
               color: '#78716c',
@@ -338,6 +361,7 @@ export default function ProModal({ onClose }: ProModalProps) {
               fontFamily: 'inherit',
               cursor: 'pointer',
               transition: 'all 0.15s',
+              minHeight: '44px',
             }}
             onMouseOver={e => { e.currentTarget.style.borderColor = '#d1d5db' }}
             onMouseOut={e => { e.currentTarget.style.borderColor = '#e7e5e4' }}
