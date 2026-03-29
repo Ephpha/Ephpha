@@ -50,7 +50,7 @@ export default function Header({ onSettingsClick, onHistoryClick }: HeaderProps)
             >
               Ephpha
             </span>
-            <span style={{ fontSize: '13px', fontWeight: 500, color: '#a8a29e', marginLeft: '1px' }}>
+            <span style={{ fontSize: '13px', fontWeight: 600, color: '#1c1917', marginLeft: '1px' }}>
               .ai
             </span>
           </div>
