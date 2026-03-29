@@ -15,7 +15,6 @@ function HistoryIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      {/* Clock with counter-clockwise arrow — universally means "history" */}
       <path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-6.364 2.636"/>
       <path d="M3 3v5h5"/>
       <path d="M12 7v5l3.5 2"/>
@@ -43,7 +42,7 @@ export default function Header({ onSettingsClick, onHistoryClick }: HeaderProps)
             <span
               className="font-extrabold tracking-tight"
               style={{
-                fontSize: '20px',
+                fontSize: '26px',
                 background: 'linear-gradient(to right, #dc2626 0%, #f97316 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -52,7 +51,7 @@ export default function Header({ onSettingsClick, onHistoryClick }: HeaderProps)
             >
               Ephpha
             </span>
-            <span style={{ fontSize: '13px', fontWeight: 600, color: '#1c1917', marginLeft: '1px' }}>
+            <span style={{ fontSize: '16px', fontWeight: 600, color: '#1c1917', marginLeft: '1px' }}>
               .ai
             </span>
           </div>
