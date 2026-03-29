@@ -17,6 +17,14 @@ function XIcon() {
   )
 }
 
+function SubstackIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+    </svg>
+  )
+}
+
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid #f1f0ef', backgroundColor: 'white' }}>
@@ -57,6 +65,18 @@ export default function Footer() {
             aria-label="Ephpha on X"
           >
             <XIcon />
+          </a>
+          <a
+            href="https://substack.com/@ephpha/notes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            style={{ color: '#a8a29e' }}
+            onMouseOver={e => (e.currentTarget.style.color = '#f97316')}
+            onMouseOut={e => (e.currentTarget.style.color = '#a8a29e')}
+            aria-label="Ephpha on Substack"
+          >
+            <SubstackIcon />
           </a>
         </div>
       </div>
