@@ -43,7 +43,7 @@ function AboutTab() {
       </h2>
 
       <p style={{ fontSize: '15px', color: '#78716c', marginBottom: '20px' }}>
-        Your email's secret weapon for more opens
+        Subject Line Optimizer + AI Email Writer
       </p>
 
       {/* Feature bullets */}
@@ -58,6 +58,7 @@ function AboutTab() {
         }}
       >
         {[
+          { icon: '✍️', text: 'AI Email Writer — generate complete emails' },
           { icon: '📬', text: 'Stand out in every inbox' },
           { icon: '🤖', text: 'AI-powered analysis' },
           { icon: '✨', text: '3 AI alternatives per analysis' },
