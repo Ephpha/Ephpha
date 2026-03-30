@@ -2,7 +2,7 @@ import { useState } from 'react'
 import OpenAI from 'openai'
 import { writeEmail } from '../api/write-email'
 
-const FREE_LIMIT = 3
+const FREE_LIMIT = 999
 
 const EMAIL_TYPES = [
   { id: 'Follow-up', label: '🔄 Follow-up' },
@@ -65,10 +65,7 @@ export default function EmailWriter({ onUpgradeClick }: EmailWriterProps) {
       setError('Please describe what you want your email to achieve')
       return
     }
-    if (getMonthlyCount() >= FREE_LIMIT) {
-      onUpgradeClick()
-      return
-    }
+    // Free limit check disabled — unlimited emails enabled
     if (!import.meta.env.VITE_OPENAI_API_KEY) {
       setError('OpenAI API key not configured.')
       return
