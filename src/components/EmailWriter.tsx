@@ -107,21 +107,6 @@ export default function EmailWriter({ onUpgradeClick }: EmailWriterProps) {
     <section className="py-10 sm:py-14 px-4">
       <div className="max-w-2xl mx-auto w-full">
 
-        {/* Usage badge */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-          <span style={{
-            fontSize: '13px', fontWeight: 600,
-            color: remaining > 0 ? '#78716c' : '#dc2626',
-            backgroundColor: 'white',
-            border: `1px solid ${remaining > 0 ? '#e7e5e4' : '#fecaca'}`,
-            borderRadius: '99px', padding: '4px 14px',
-          }}>
-            {remaining > 0
-              ? `${remaining} free email${remaining !== 1 ? 's' : ''} left this month`
-              : 'Free limit reached — upgrade for unlimited'}
-          </span>
-        </div>
-
         {/* Goal textarea */}
         <div style={{ marginBottom: '16px' }}>
           <label style={{ display: 'block', fontWeight: 700, fontSize: '14px', color: '#1c1917', marginBottom: '8px' }}>
