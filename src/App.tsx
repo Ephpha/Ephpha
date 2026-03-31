@@ -1,4 +1,4 @@
-import { useState } from 'react'
+    import { useState } from 'react'
 import OpenAI from 'openai'
 import Header from './components/Header'
 import Hero from './components/Hero'
