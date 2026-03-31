@@ -119,7 +119,7 @@ export default function App() {
 
       const history = JSON.parse(localStorage.getItem('ephpha-history') || '[]')
       const newHistory = [
-        { subject, score: analysisResult.score, date: new Date().toISOString() },
+        { tool: 'analyze', subject, score: analysisResult.score, date: new Date().toISOString() },
         ...history,
       ].slice(0, 10)
       localStorage.setItem('ephpha-history', JSON.stringify(newHistory))
@@ -195,7 +195,15 @@ export default function App() {
       )}
 
       {activeTab === 'write' && (
-        <EmailWriter onUpgradeClick={() => setShowProModal(true)} />
+        <EmailWriter
+          onUpgradeClick={() => setShowProModal(true)}
+          onSaveHistory={(goal: string, score: number) => {
+            const h = JSON.parse(localStorage.getItem('ephpha-history') || '[]')
+            localStorage.setItem('ephpha-history', JSON.stringify(
+              [{ tool: 'write', goal, score, date: new Date().toISOString() }, ...h].slice(0, 10)
+            ))
+          }}
+        />
       )}
 
       {showProModal && <ProModal onClose={() => setShowProModal(false)} />}
