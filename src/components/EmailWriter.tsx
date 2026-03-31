@@ -107,6 +107,25 @@ export default function EmailWriter({ onUpgradeClick }: EmailWriterProps) {
     <section className="py-10 sm:py-14 px-4">
       <div className="max-w-2xl mx-auto w-full">
 
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1
+            className="text-center font-extrabold leading-tight tracking-tight mb-3"
+            style={{
+              fontSize: 'clamp(1.75rem, 6vw, 3rem)',
+              background: 'linear-gradient(to right, #dc2626 0%, #c2410c 35%, #ea580c 60%, #f97316 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Emails That Get Replies
+          </h1>
+          <p className="text-center px-2" style={{ color: '#1c1917', fontSize: '15px', fontWeight: 600 }}>
+            Tell Ephpha your goal and get a polished, professional email in seconds
+          </p>
+        </div>
+
         {/* Goal textarea */}
         <div style={{ marginBottom: '16px' }}>
           <label style={{ display: 'block', fontWeight: 700, fontSize: '14px', color: '#1c1917', marginBottom: '8px' }}>
