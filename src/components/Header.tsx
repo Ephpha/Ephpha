@@ -61,6 +61,8 @@ export default function Header({ onSettingsClick, onHistoryClick }: HeaderProps)
         <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={onSettingsClick}
+            title="Unlock your email opens"
+            aria-label="Unlock your email opens"
             className="hidden sm:flex items-center gap-1.5 font-bold text-sm text-white bg-gradient-to-r from-red-700 to-amber-500 rounded-full min-h-[40px] px-4 transition-all hover:scale-105 hover:brightness-110 active:scale-95"
           >
             <SparkleIcon />
@@ -69,6 +71,8 @@ export default function Header({ onSettingsClick, onHistoryClick }: HeaderProps)
           {/* Mobile: show just the sparkle icon */}
           <button
             onClick={onSettingsClick}
+            title="Unlock your email opens"
+            aria-label="Unlock your email opens"
             className="sm:hidden flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full bg-gradient-to-r from-red-700 to-amber-500 transition-all hover:brightness-110 active:scale-95"
           >
             <SparkleIcon />
