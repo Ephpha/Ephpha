@@ -171,11 +171,11 @@ export default function App() {
       {/* Tab bar */}
       <div style={{ backgroundColor: 'white', borderBottom: '1px solid #f1f0ef' }}>
         <div className="max-w-2xl mx-auto px-4" style={{ display: 'flex' }}>
-          <button style={tabStyle('analyze')} onClick={() => setActiveTab('analyze')}>
-            ⚡ Analyze
-          </button>
           <button style={tabStyle('write')} onClick={() => setActiveTab('write')}>
             ✍️ Write
+          </button>
+          <button style={tabStyle('analyze')} onClick={() => setActiveTab('analyze')}>
+            ⚡ Analyze
           </button>
         </div>
       </div>
