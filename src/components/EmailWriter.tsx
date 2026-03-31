@@ -45,9 +45,10 @@ function incrementUsage(): void {
 
 interface EmailWriterProps {
   onUpgradeClick: () => void
+  onSaveHistory?: (goal: string, score: number) => void
 }
 
-export default function EmailWriter({ onUpgradeClick }: EmailWriterProps) {
+export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWriterProps) {
   const [goal, setGoal] = useState('')
   const [emailType, setEmailType] = useState('Cold Outreach')
   const [isGenerating, setIsGenerating] = useState(false)
@@ -78,6 +79,7 @@ export default function EmailWriter({ onUpgradeClick }: EmailWriterProps) {
       const data = await writeEmail(goal, emailType)
       incrementUsage()
       setResult({ subject: data.subject, score: data.score, body: data.body })
+      onSaveHistory?.(goal, data.score)
     } catch (err: unknown) {
       if (err instanceof OpenAI.APIError) {
         if (err.status === 401) setError('Invalid API key.')
