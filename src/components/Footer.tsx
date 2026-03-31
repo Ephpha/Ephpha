@@ -1,7 +1,6 @@
 function InstagramIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
       <circle cx="12" cy="12" r="4"/>
       <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
@@ -51,19 +50,24 @@ function QuoraIcon() {
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid #f1f0ef', backgroundColor: 'white' }}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-5 py-4 flex items-center justify-between">
-        <span style={{ fontSize: '13px', color: '#a8a29e', fontWeight: 500 }}>
-          Ephpha{' '}
-          <span style={{
-            background: 'linear-gradient(to right, #dc2626, #f97316)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            fontWeight: 700,
-          }}>©</span>{' '}
-          2026
-        </span>
+    <footer style={{ borderTop: '1px solid #f3f4f6', backgroundColor: 'white' }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-5 py-6 flex items-center justify-between flex-wrap gap-3">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ fontSize: '13px', color: '#a8a29e', fontWeight: 500 }}>
+            Ephpha{' '}
+            <span style={{
+              background: 'linear-gradient(to right, #dc2626, #f97316)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: 700,
+            }}>©</span>{' '}
+            2026
+          </span>
+          <span style={{ fontSize: '12px', color: '#d1d5db', fontWeight: 400 }}>
+            AI-powered email tools
+          </span>
+        </div>
 
         <div className="flex items-center gap-4 sm:gap-5">
           <a
