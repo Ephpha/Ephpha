@@ -143,7 +143,10 @@ export default function App() {
 
       {/* Tab bar */}
       <div style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #f1f0ef' }}>
-        <div className="max-w-2xl mx-auto px-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '12px', paddingBottom: '12px' }}>
+        <div
+          className="max-w-2xl mx-auto px-4"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '12px', paddingBottom: '12px' }}
+        >
           {/* Pill tab container */}
           <div style={{ display: 'inline-flex', backgroundColor: '#f3f4f6', borderRadius: '999px', padding: '4px', gap: '2px' }}>
             <button
@@ -187,6 +190,7 @@ export default function App() {
           {/* New session button */}
           <button
             title="New session"
+            aria-label="New session"
             onClick={() => {
               setSubject('')
               setResult(null)
