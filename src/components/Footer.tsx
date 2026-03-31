@@ -25,6 +25,14 @@ function SubstackIcon() {
   )
 }
 
+function HackerNoonIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M0 24V0h4.406v9.66h.11L9.875 0H14.5L8.887 10.423 15 24h-4.844l-4.129-9.668-.221.11V24H0zm24 0h-4.406v-9.66h-.113L14.125 24H9.5l5.613-10.423L9 0h4.844l4.129 9.668.221-.11V0H24v24z"/>
+    </svg>
+  )
+}
+
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid #f1f0ef', backgroundColor: 'white' }}>
@@ -77,6 +85,18 @@ export default function Footer() {
             aria-label="Ephpha on Substack"
           >
             <SubstackIcon />
+          </a>
+          <a
+            href="https://hackernoon.com/u/ephpha"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            style={{ color: '#a8a29e' }}
+            onMouseOver={e => (e.currentTarget.style.color = '#00ff00')}
+            onMouseOut={e => (e.currentTarget.style.color = '#a8a29e')}
+            aria-label="Ephpha on HackerNoon"
+          >
+            <HackerNoonIcon />
           </a>
         </div>
       </div>
