@@ -154,7 +154,7 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
             onFocus={e => {
               if (!error) {
                 e.currentTarget.style.borderColor = '#f97316'
-                e.currentTarget.style.boxShadow = '0 0 0 2px #fed7aa'
+                e.currentTarget.style.boxShadow = '0 0 0 3px rgba(251,146,60,0.2)'
               }
             }}
             onBlur={e => {
@@ -224,9 +224,9 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
             fontWeight: 700,
             fontFamily: 'inherit',
             cursor: btnDisabled ? 'not-allowed' : 'pointer',
-            background: 'linear-gradient(to right, #dc2626, #f97316)',
+            backgroundColor: '#dc2626',
             color: 'white',
-            opacity: btnDisabled ? 0.5 : 1,
+            opacity: btnDisabled ? 0.45 : 1,
             transition: 'opacity 0.15s',
           }}
         >
