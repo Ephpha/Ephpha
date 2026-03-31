@@ -55,7 +55,7 @@ Rules:
 type Tab = 'analyze' | 'write'
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<Tab>('analyze')
+  const [activeTab, setActiveTab] = useState<Tab>('write')
   const [subject, setSubject] = useState('')
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [result, setResult] = useState<AnalysisResult | null>(null)
