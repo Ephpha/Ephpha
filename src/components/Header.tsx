@@ -41,12 +41,12 @@ export default function Header({ onSettingsClick, onHistoryClick, onNewSession }
         {/* Logo + brand name */}
         <div className="flex items-center gap-2">
           <img
-            src="/logo-icon.jpg"
+            src="/logo-icon.png"
             alt="Ephpha logo"
             width={70}
             height={70}
             className="w-14 h-14 sm:w-[70px] sm:h-[70px]"
-            style={{ objectFit: 'contain', display: 'block' }}
+            style={{ objectFit: 'contain', display: 'block', background: 'transparent', mixBlendMode: 'multiply' }}
           />
           <div className="leading-none">
             <span

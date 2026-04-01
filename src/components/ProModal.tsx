@@ -12,7 +12,7 @@ function LogoIcon() {
         alt="Ephpha logo"
         width={72}
         height={72}
-        style={{ objectFit: 'contain', display: 'block' }}
+        style={{ objectFit: 'contain', display: 'block', background: 'transparent', mixBlendMode: 'multiply' }}
       />
     </div>
   )
