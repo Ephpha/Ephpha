@@ -107,7 +107,7 @@ export default function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+          <div style={{ minHeight: '100vh' }}>
       <Header
         onSettingsClick={() => setShowProModal(true)}
         onHistoryClick={() => setShowHistory(true)}
