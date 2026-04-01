@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import OpenAI from 'openai'
 import { writeEmail } from '../api/write-email'
 
 const FREE_LIMIT = 999
@@ -67,10 +66,6 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
       return
     }
     // Free limit check disabled — unlimited emails enabled
-    if (!import.meta.env.VITE_OPENAI_API_KEY) {
-      setError('OpenAI API key not configured.')
-      return
-    }
     setIsGenerating(true)
     setError('')
     setResult(null)
@@ -81,10 +76,8 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
       setResult({ subject: data.subject, score: data.score, body: data.body })
       onSaveHistory?.(goal, data.score)
     } catch (err: unknown) {
-      if (err instanceof OpenAI.APIError) {
-        if (err.status === 401) setError('Invalid API key.')
-        else if (err.status === 429) setError('Rate limit reached. Please wait a moment.')
-        else setError(`OpenAI error: ${err.message}`)
+      if (err instanceof Error) {
+        setError(err.message)
       } else {
         setError('Something went wrong. Please try again.')
       }
