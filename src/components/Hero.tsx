@@ -73,6 +73,7 @@ export default function Hero({ subject, onSubjectChange, onAnalyze, isAnalyzing,
     <section className="py-10 sm:py-14 px-4">
       <div className="max-w-2xl mx-auto w-full">
         {/* Headline */}
+        <div className="text-center mb-6 sm:mb-8" style={{ background: 'rgba(255,249,246,0.92)', borderRadius: '16px', padding: '20px 16px 12px', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
         <h1
           className="text-center font-extrabold leading-tight tracking-tight mb-3"
           style={{
@@ -88,9 +89,10 @@ export default function Hero({ subject, onSubjectChange, onAnalyze, isAnalyzing,
         </h1>
 
         {/* Subtitle */}
-        <p className="text-center mb-6 sm:mb-8 px-2" style={{ color: '#6b7280', WebkitTextFillColor: '#6b7280', fontSize: '15px', fontWeight: 400 }}>
+        <p className="text-center px-2" style={{ color: '#6b7280', WebkitTextFillColor: '#6b7280', fontSize: '15px', fontWeight: 400 }}>
           Ephpha gives your emails the edge they need to stand out in any inbox
         </p>
+        </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full">

@@ -100,7 +100,7 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
     <section className="py-10 sm:py-14 px-4">
       <div className="max-w-2xl mx-auto w-full">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8" style={{ background: 'rgba(255,249,246,0.92)', borderRadius: '16px', padding: '20px 16px 12px', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
           <h1
             className="text-center font-extrabold leading-tight tracking-tight mb-3"
             style={{
