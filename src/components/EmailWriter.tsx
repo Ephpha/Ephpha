@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { writeEmail } from '../api/write-email'
 
 const FREE_LIMIT = 999
@@ -13,11 +13,14 @@ const EMAIL_TYPES = [
 ]
 
 const LOADING_MSGS = [
-  'Crafting your message...',
-  'Finding the perfect words...',
-  'Building your email...',
-  'Polishing the subject line...',
-  'Almost ready...',
+  'Consulting the AI gods…',
+  'Finding the perfect words…',
+  'Sprinkling some magic…',
+  'Polishing every sentence…',
+  'Almost ready…',
+  'Making it irresistible…',
+  'Crafting your opening line…',
+  'Adding the finishing touches…',
 ]
 
 interface EmailResult {
@@ -54,6 +57,16 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
   const [result, setResult] = useState<EmailResult | null>(null)
   const [error, setError] = useState('')
   const [loadingMsg, setLoadingMsg] = useState('')
+  const [msgIndex, setMsgIndex] = useState(0)
+
+  useEffect(() => {
+    if (!isGenerating) return
+    setMsgIndex(0)
+    const interval = setInterval(() => {
+      setMsgIndex(i => (i + 1) % LOADING_MSGS.length)
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [isGenerating])
   const [copied, setCopied] = useState<'subject' | 'body' | 'all' | null>(null)
 
   const remaining = Math.max(0, FREE_LIMIT - getMonthlyCount())
@@ -225,14 +238,18 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
           }}
         >
           {isGenerating ? (
-            <>
-              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'white', borderRadius: '8px', width: '28px', height: '28px' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.8s linear infinite', transformOrigin: 'center' }}>
-                  <circle cx="12" cy="12" r="9" stroke="#dc2626" strokeWidth="3" strokeDasharray="28 14" strokeLinecap="round" />
+            <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', width: '100%' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.8s linear infinite', transformOrigin: 'center', flexShrink: 0 }}>
+                  <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.5)" strokeWidth="3" />
+                  <path d="M12 3a9 9 0 0 1 9 9" stroke="white" strokeWidth="3" strokeLinecap="round" />
                 </svg>
+                <span style={{ fontWeight: 700, fontSize: '15px' }}>Generating your email</span>
               </span>
-              {loadingMsg || 'Generating...'}
-            </>
+              <span style={{ fontSize: '12px', fontWeight: 500, opacity: 0.8, transition: 'opacity 0.3s' }}>
+                {LOADING_MSGS[msgIndex]}
+              </span>
+            </span>
           ) : (
             <>
               <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'white', borderRadius: '8px', width: '28px', height: '28px' }}>
