@@ -6,11 +6,8 @@ interface HeaderProps {
 
 function InfoIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <line x1="12" y1="8" x2="12" y2="8"/>
-      <line x1="12" y1="12" x2="12" y2="16"/>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
     </svg>
   )
 }
@@ -77,8 +74,8 @@ export default function Header({ onSettingsClick, onHistoryClick, onNewSession }
             onClick={onSettingsClick}
             title="About Ephpha"
             aria-label="About Ephpha"
-            className="hidden sm:flex items-center gap-1.5 font-semibold text-sm rounded-full min-h-[36px] px-3.5 transition-colors hover:bg-orange-50 active:scale-95"
-            style={{ color: '#f97316', border: '1.5px solid #fb923c', background: 'white' }}
+            className="hidden sm:flex items-center gap-1.5 font-semibold text-sm rounded-full min-h-[34px] px-3.5 transition-all hover:bg-red-50 active:scale-95"
+            style={{ color: '#dc2626', border: '1.5px solid #dc2626', background: 'white', letterSpacing: '0.01em' }}
           >
             <InfoIcon />
             About Ephpha
@@ -89,7 +86,7 @@ export default function Header({ onSettingsClick, onHistoryClick, onNewSession }
             title="About Ephpha"
             aria-label="About Ephpha"
             className="sm:hidden flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full transition-colors hover:bg-orange-50 active:scale-95"
-            style={{ color: '#f97316' }}
+            style={{ color: '#dc2626' }}
           >
             <InfoIcon />
           </button>
