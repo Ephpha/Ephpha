@@ -13,14 +13,14 @@ const EMAIL_TYPES = [
 ]
 
 const LOADING_MSGS = [
-  'Consulting the AI gods…',
-  'Finding the perfect words…',
-  'Sprinkling some magic…',
-  'Polishing every sentence…',
+  'AI gods cooking…',
+  'Finding perfect words…',
+  'Sprinkling magic…',
+  'Polishing sentences…',
   'Almost ready…',
   'Making it irresistible…',
-  'Crafting your opening line…',
-  'Adding the finishing touches…',
+  'Crafting your hook…',
+  'Final touches…',
 ]
 
 interface EmailResult {
@@ -238,22 +238,20 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
           }}
         >
           {isGenerating ? (
-            <>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.8s linear infinite', transformOrigin: 'center', flexShrink: 0 }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.8s linear infinite', transformOrigin: 'center', flexShrink: 0 }}>
                 <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.35)" strokeWidth="3" />
                 <path d="M12 3a9 9 0 0 1 9 9" stroke="white" strokeWidth="3" strokeLinecap="round" />
               </svg>
               {LOADING_MSGS[msgIndex]}
-            </>
+            </span>
           ) : (
-            <>
-              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'white', borderRadius: '8px', width: '28px', height: '28px' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-                </svg>
-              </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+              </svg>
               Generate Email
-            </>
+            </span>
           )}
         </button>
 
