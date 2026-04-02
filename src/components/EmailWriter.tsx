@@ -56,8 +56,8 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
   const [isGenerating, setIsGenerating] = useState(false)
   const [result, setResult] = useState<EmailResult | null>(null)
   const [error, setError] = useState('')
-  const [loadingMsg, setLoadingMsg] = useState('')
   const [msgIndex, setMsgIndex] = useState(0)
+  const [copied, setCopied] = useState<'subject' | 'body' | 'all' | null>(null)
 
   useEffect(() => {
     if (!isGenerating) return
@@ -67,7 +67,6 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
     }, 2000)
     return () => clearInterval(interval)
   }, [isGenerating])
-  const [copied, setCopied] = useState<'subject' | 'body' | 'all' | null>(null)
 
   const remaining = Math.max(0, FREE_LIMIT - getMonthlyCount())
   const hasText = goal.trim().length > 0
@@ -82,7 +81,6 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
     setIsGenerating(true)
     setError('')
     setResult(null)
-    setLoadingMsg(LOADING_MSGS[Math.floor(Math.random() * LOADING_MSGS.length)])
     try {
       const data = await writeEmail(goal, emailType)
       incrementUsage()
@@ -221,12 +219,14 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
           style={{
             width: '100%',
             display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'nowrap',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '10px',
+            gap: '8px',
             borderRadius: '12px',
             border: 'none',
-            minHeight: '52px',
+            height: '52px',
             fontSize: '16px',
             fontWeight: 700,
             fontFamily: 'inherit',
@@ -235,23 +235,26 @@ export default function EmailWriter({ onUpgradeClick, onSaveHistory }: EmailWrit
             color: 'white',
             opacity: btnDisabled ? 0.6 : 1,
             transition: 'opacity 0.15s',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            lineHeight: '1',
           }}
         >
           {isGenerating ? (
-            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.8s linear infinite', transformOrigin: 'center', flexShrink: 0 }}>
+            <>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.8s linear infinite', transformOrigin: 'center', flexShrink: 0, minWidth: 16 }}>
                 <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.35)" strokeWidth="3" />
                 <path d="M12 3a9 9 0 0 1 9 9" stroke="white" strokeWidth="3" strokeLinecap="round" />
               </svg>
-              {LOADING_MSGS[msgIndex]}
-            </span>
+              <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{LOADING_MSGS[msgIndex]}</span>
+            </>
           ) : (
-            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, minWidth: 16 }}>
                 <path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
               </svg>
-              Generate Email
-            </span>
+              <span style={{ whiteSpace: 'nowrap' }}>Generate Email</span>
+            </>
           )}
         </button>
 
