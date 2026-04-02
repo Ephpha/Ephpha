@@ -126,7 +126,7 @@ export default function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh' }}>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       <Header
         onSettingsClick={() => setShowProModal(true)}
         onHistoryClick={() => setShowHistory(true)}
@@ -183,6 +183,8 @@ export default function App() {
 
       <div
         style={{
+          flex: 1,
+          overflowY: 'auto',
           paddingTop: '8px',
           opacity: isResetting ? 0 : 1,
           transition: 'opacity 0.15s ease',
@@ -213,6 +215,7 @@ export default function App() {
             }}
           />
         )}
+        <Footer />
       </div>
 
       {toast && (
@@ -282,7 +285,6 @@ export default function App() {
 
       {showProModal && <ProModal onClose={() => setShowProModal(false)} />}
       {showHistory && <History onClose={() => setShowHistory(false)} />}
-      <Footer />
       <Analytics />
     </div>
   )
