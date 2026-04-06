@@ -1,0 +1,27 @@
+const fs = require('fs');
+const path = require('path');
+
+const sharp = require('sharp');
+const iconsDir = path.join(__dirname, 'icons');
+if (!fs.existsSync(iconsDir)) fs.mkdirSync(iconsDir);
+
+const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect x="10" y="20" width="44" height="30" rx="3" fill="white" opacity="0.95"/>
+  <path d="M10 20 L32 38 L54 20" fill="none" stroke="#ea580c" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M50 10 L51.5 13.5 L55 15 L51.5 16.5 L50 20 L48.5 16.5 L45 15 L48.5 13.5 Z" fill="white" opacity="0.9"/>
+</svg>`;
+
+Promise.all([16, 48, 128].map(size =>
+  sharp(Buffer.from(svgContent))
+    .resize(size, size)
+    .png()
+    .toFile(path.join(iconsDir, `icon${size}.png`))
+    .then(() => console.log(`✓ icon${size}.png`))
+)).then(() => console.log('All icons generated.'));
