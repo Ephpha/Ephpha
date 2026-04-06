@@ -107,34 +107,36 @@ export default function WhenToSendTab() {
   return (
     <section className="py-10 sm:py-14 px-4">
       <div className="max-w-2xl mx-auto w-full">
-        {/* Header */}
-        <div
-          className="text-center mb-8"
-          style={{
-            background: 'rgba(255,249,246,0.92)',
-            borderRadius: '16px',
-            padding: '20px 16px 12px',
-            backdropFilter: 'blur(4px)',
-            WebkitBackdropFilter: 'blur(4px)',
-          }}
-        >
-          <h1
-            className="text-center font-extrabold leading-tight tracking-tight mb-3"
+        {/* Header — hidden once results are showing */}
+        {!result && (
+          <div
+            className="text-center mb-8"
             style={{
-              fontSize: 'clamp(1.75rem, 6vw, 3rem)',
-              background: 'linear-gradient(to right, #dc2626 0%, #c2410c 35%, #ea580c 60%, #f97316 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              WebkitTextStroke: '1.5px rgba(0,0,0,0.55)',
+              background: 'rgba(255,249,246,0.92)',
+              borderRadius: '16px',
+              padding: '20px 16px 12px',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
             }}
           >
-            Send It At The Right Moment
-          </h1>
-          <p className="text-center px-2" style={{ color: '#6b7280', fontSize: '15px', fontWeight: 400 }}>
-            Tell Ephpha who you're emailing and get a precise send window — no guesswork.
-          </p>
-        </div>
+            <h1
+              className="text-center font-extrabold leading-tight tracking-tight mb-3"
+              style={{
+                fontSize: 'clamp(1.75rem, 6vw, 3rem)',
+                background: 'linear-gradient(to right, #dc2626 0%, #c2410c 35%, #ea580c 60%, #f97316 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                WebkitTextStroke: '1.5px rgba(0,0,0,0.55)',
+              }}
+            >
+              Send It At The Right Moment
+            </h1>
+            <p className="text-center px-2" style={{ color: '#6b7280', fontSize: '15px', fontWeight: 400 }}>
+              Tell Ephpha who you're emailing and get a precise send window — no guesswork.
+            </p>
+          </div>
+        )}
 
         {result ? (
           /* ── Result card ── */
