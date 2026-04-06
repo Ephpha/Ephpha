@@ -10,6 +10,12 @@ const LOADING_MSGS = [
   'Almost done…',
 ]
 
+const stripSubjectLine = (text: string): string => {
+  return text
+    .replace(/^Subject:.*\n?/i, '')
+    .replace(/^\s+/, '')
+}
+
 interface ImproveResult {
   improvedEmail: string
   clarityScore: number
@@ -64,7 +70,7 @@ export default function ImproveTab() {
         throw new Error('Unexpected response format from AI')
       }
       setResult({
-        improvedEmail: data.improvedEmail,
+        improvedEmail: stripSubjectLine(data.improvedEmail),
         clarityScore: Math.min(10, Math.max(1, Math.round(data.clarityScore))),
         toneScore: Math.min(10, Math.max(1, Math.round(data.toneScore))),
         ctaScore: Math.min(10, Math.max(1, Math.round(data.ctaScore))),

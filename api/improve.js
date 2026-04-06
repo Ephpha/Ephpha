@@ -13,6 +13,9 @@ Rules:
 - Keep the same intent and key facts
 - Make it genuinely better — don't just rephrase
 - fixes array should be specific and concrete, 2-4 items
+- Return the email BODY only — no subject line, no "Subject:" prefix whatsoever
+- Do not add, suggest, or prepend a subject line under any circumstances
+- Start the improved email directly with the greeting or first sentence
 - Return ONLY the JSON object, no markdown, no explanation`;
 
 export default async function handler(req, res) {
