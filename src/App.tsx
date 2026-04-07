@@ -139,17 +139,18 @@ export default function App() {
       {/* Tab bar */}
       <div style={{ borderBottom: '1px solid #f1f0ef' }}>
         <div
-          className="max-w-2xl mx-auto px-4"
+          className="tab-scroll max-w-2xl mx-auto px-4"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '12px', paddingBottom: '12px' }}
         >
           {/* Pill tab container */}
-          <div style={{ display: 'inline-flex', backgroundColor: '#f3f4f6', borderRadius: '999px', padding: '4px', gap: '2px' }}>
+          <div style={{ display: 'inline-flex', backgroundColor: '#f3f4f6', borderRadius: '999px', padding: '4px', gap: '2px', flexShrink: 0 }}>
             {(['write', 'improve', 'analyze', 'whenToSend'] as Tab[]).map(tab => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
+                className="tab-btn"
                 style={{
-                  padding: '8px 20px',
+                  padding: '8px 14px',
                   fontWeight: 700,
                   fontSize: '14px',
                   border: 'none',
@@ -161,6 +162,7 @@ export default function App() {
                   color: activeTab === tab ? '#1f2937' : '#6b7280',
                   boxShadow: activeTab === tab ? '0 1px 4px rgba(0,0,0,0.10)' : 'none',
                   whiteSpace: 'nowrap',
+                  flexShrink: 0,
                 }}
               >
                 {tab === 'whenToSend' ? 'When To Send' : tab.charAt(0).toUpperCase() + tab.slice(1)}

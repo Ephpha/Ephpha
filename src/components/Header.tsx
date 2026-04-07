@@ -36,10 +36,10 @@ export default function Header({ onSettingsClick, onHistoryClick, onNewSession }
   return (
     <header style={{ backgroundColor: 'white', borderBottom: '1px solid #f1f0ef' }}
       className="sticky top-0 z-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-5 py-2 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto px-4 sm:px-5 py-2 flex items-center justify-between gap-2 overflow-hidden">
 
         {/* Logo + brand name */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0 overflow-hidden">
           <img
             src="/logo-icon.png"
             alt="Ephpha logo"
@@ -68,13 +68,13 @@ export default function Header({ onSettingsClick, onHistoryClick, onNewSession }
         </div>
 
         {/* Nav right */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           {/* About Ephpha — ghost outline button (desktop) */}
           <button
             onClick={onSettingsClick}
             title="About Ephpha"
             aria-label="About Ephpha"
-            className="hidden sm:flex items-center gap-1.5 font-semibold text-sm rounded-full min-h-[34px] px-3.5 transition-all hover:bg-red-50 active:scale-95"
+            className="hidden min-[500px]:flex items-center gap-1.5 font-semibold text-sm rounded-full min-h-[34px] px-3.5 transition-all hover:bg-red-50 active:scale-95"
             style={{ color: '#dc2626', border: '1.5px solid #dc2626', background: 'white', letterSpacing: '0.01em' }}
           >
             <InfoIcon />
@@ -85,7 +85,7 @@ export default function Header({ onSettingsClick, onHistoryClick, onNewSession }
             onClick={onSettingsClick}
             title="About Ephpha"
             aria-label="About Ephpha"
-            className="sm:hidden flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full transition-colors hover:bg-orange-50 active:scale-95"
+            className="min-[500px]:hidden flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full transition-colors hover:bg-orange-50 active:scale-95"
             style={{ color: '#dc2626' }}
           >
             <InfoIcon />
